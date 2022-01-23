@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>Môn Toán</label>
+<input type="text" id="toan"><br>
+<label>Môn Văn</label>
+<input type="text" id="van"><br>
+<label>Môn Anh</label>
+<input type="text" id="anh"><br>
+<label>Khu Vực</label>
+
+<select name="" id="khu_vuc" onchange="tinhDiem()">
+    <option value="0.75">KV1</option>
+    <option value="0.25">KV2</option>
+    <option value="0.5">KV2-NT</option>
+    <option value="0">KV3</option>
+</select><br>
+<button onclick="tinhDiem()">Tính Điểm</button>
+<label>Kết quả</label>
+<h1 style="color: red" id="result"></h1>
+</body>
+</html>
+<script>
+    //Với bài này ta sẽ sử dụng onchange để bắt value của option trong select value của option là dạng số
+    // lưu ý đặt dấu + trước các biến để chuyển từ dạng chuổi về dạng số
+    function tinhDiem() {
+        let toan = +document.getElementById('toan').value;
+        let van = +document.getElementById('van').value;
+        let anh = +document.getElementById('anh').value;
+        let khuVuc = +document.getElementById('khu_vuc').value;
+        console.log('khu vuc --> ', khuVuc)
+        let tongDiem = toan+van+anh+khuVuc;
+        document.getElementById('result').innerHTML = tongDiem;
+    }
+</script>
